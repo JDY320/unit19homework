@@ -10,10 +10,10 @@ from crypto_wallet import generate_account, get_balance, send_transaction
 # Database of Fintech Finder candidates including their name, digital address, rating and hourly cost per Ether.
 # A single Ether is currently valued at $1,500
 candidate_database = {
-    "Lane": ["Lane", "0xaC8eB8B2ed5C4a0fC41a84Ee4950F417f67029F0", "4.3", .20, "Images/lane.jpeg"],
-    "Ash": ["Ash", "0x2422858F9C4480c2724A309D58Ffd7Ac8bF65396", "5.0", .33, "Images/ash.jpeg"],
-    "Jo": ["Jo", "0x8fD00f170FDf3772C5ebdCD90bF257316c69BA45", "4.7", .19, "Images/jo.jpeg"],
-    "Kendall": ["Kendall", "0x8fD00f170FDf3772C5ebdCD90bF257316c69BA45", "4.1", .16, "Images/kendall.jpeg"]
+    "Lane": ["Lane", "0xaC8eB8B2ed5C4a0fC41a84Ee4950F417f67029F0", "4.3", .20, "https://github.com/RutgersCodingBootcamp/RUT-SOM-VIRT-FIN-PT-08-2021-U-C/blob/master/02-Homework/19-Blockchain-Wallets/Solutions/Images/lane.jpeg?raw=true"],
+    "Ash": ["Ash", "0x2422858F9C4480c2724A309D58Ffd7Ac8bF65396", "5.0", .33, "https://raw.githubusercontent.com/RutgersCodingBootcamp/RUT-SOM-VIRT-FIN-PT-08-2021-U-C/master/02-Homework/19-Blockchain-Wallets/Solutions/Images/ash.jpeg"],
+    "Jo": ["Jo", "0x8fD00f170FDf3772C5ebdCD90bF257316c69BA45", "4.7", .19, "https://github.com/RutgersCodingBootcamp/RUT-SOM-VIRT-FIN-PT-08-2021-U-C/blob/master/02-Homework/19-Blockchain-Wallets/Solutions/Images/jo.jpeg?raw=true"],
+    "Kendall": ["Kendall", "0x8fD00f170FDf3772C5ebdCD90bF257316c69BA45", "4.1", .16, "https://github.com/RutgersCodingBootcamp/RUT-SOM-VIRT-FIN-PT-08-2021-U-C/blob/master/02-Homework/19-Blockchain-Wallets/Solutions/Images/kendall.jpeg?raw=true"]
 }
 
 # A list of the FinTech Finder candidates first names
@@ -190,7 +190,7 @@ if st.sidebar.button("Send Transaction"):
     # Call the `send_transaction` function and pass it 3 parameters:
     # Your `account`, the `candidate_address`, and the `wage` as parameters
     # Save the returned transaction hash as a variable named `transaction_hash`
-    send_transaction(w3, account, candidate_address, wage)
+    transaction_hash = send_transaction(w3, account, candidate_address, wage)
 
     # Markdown for the transaction hash
     st.sidebar.markdown("#### Validated Transaction Hash")
@@ -203,7 +203,7 @@ if st.sidebar.button("Send Transaction"):
 
 # The function that starts the Streamlit application
 # Writes FinTech Finder candidates to the Streamlit page
-get_people(w3)
+get_people()
 
 ################################################################################
 # Step 3: Inspect the Transaction
